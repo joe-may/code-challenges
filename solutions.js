@@ -681,14 +681,12 @@ reduceArray( ['Yes', 'No', 'Yes', 'Maybe'], function(acc, v) {
 -----------------------------------------------------------------*/
 // Your solution for 18-reduceArray here:
 
-function reduceArray(arr, cb, initAcc) {
-  var acc = initAcc;
-  arr.forEach(function(el, idx) {
-    acc = cb(acc, el, idx);
-  });
-  return acc;
+function reduceArray(arr, action, origin) {
+  let result = origin;
+  for(let i = 0; i < arr.length; i++)
+      result = action(result, arr[i], i);
+  return result;
 }
-
 
 /*-----------------------------------------------------------------
 Challenge: 19-flatten
